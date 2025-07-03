@@ -1,0 +1,1022 @@
+/* ========== GLOBAL LAYOUT FIX FOR FOOTER ========== */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Oswald', sans-serif;
+}
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+main {
+  flex: 1;
+  padding-bottom: 3rem;
+}
+.main-nav {
+  margin-left: auto;
+}
+
+/* ========== HEADER STYLES ========== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #d8eaf7dc;
+  color: rgb(88, 156, 245);
+  border-bottom: 3px solid #6d6c6c1d;
+  box-shadow: none;
+}
+.site-titles {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.1rem;  /* reduces space between title and subtitle */
+  margin: 0;
+  padding: 0;
+}
+
+.site-title {
+  margin: 0;
+  padding: 0;
+  line-height: 1.1;
+}
+.site-subtitle {
+  font-family: Oswald, sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.1;
+  color: rgba(54, 95, 183, 0.627);
+  margin: 0;
+  padding: 0;
+}
+
+.site-header .container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    max-width: 1200px;
+    gap: 0.1rem;
+    margin: 0 auto;
+    padding: 0 0rem;
+}
+
+.logo {
+  height: 67px; /* matches your old layout */
+  display: flex;
+  align-items: center;
+}
+
+.logo-link img {
+  height: 67px;
+  width: auto !important;
+  transition: transform 0.3s ease;
+}
+
+.site-header {
+  padding: 0.3rem 0 !important;
+}
+.logo-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem; /* space between logo and title */
+}
+
+.logo-link img {
+  height: 60px;  /* adjust as needed */
+  width: auto;
+  transition: transform 0.3s;
+}
+.logo-link:hover img {
+  transform: scale(1.15); /* ✅ zoom effect on logo hover */
+}
+.title-link {
+  color: rgb(88, 156, 245);               /* light blue */
+  font-family: 'Matangi', serif;          /* custom font */
+  font-size: 1.8rem;                      /* adjust for balance with logo */
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;                  /* remove underline */
+  transition: color 0.3s ease;
+}
+
+.title-link:hover {
+  color: #365fb7; /* darker shade on hover */
+}
+
+/* ========== MAIN NAVIGATION ========== */
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.8rem;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav ul li {
+  position: relative;
+}
+
+.main-nav ul li a {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1rem;
+  color: rgb(88, 156, 245);
+  text-decoration: none;
+  display: block;
+  padding: 0.1rem 0;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Underline hover animation (center-out) */
+.main-nav ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  width: 100%;
+  height: 2px;
+  background-color: rgba(54, 95, 183, 0.63);
+  transition: transform 0.3s ease;
+}
+
+.main-nav ul li a:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.site-nav {
+  margin-left: auto;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0 1rem;
+}
+
+.nav-menu li a {
+  position: relative;
+  text-decoration: none;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1rem;
+  color: rgb(88, 156, 245);
+  transition: color 0.3s ease;
+}
+
+.nav-menu li a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  width: 100%;
+  height: 2px;
+  background-color: #365fb7a0;
+  transition: transform 0.3s ease;
+}
+
+.nav-menu li a:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.nav-menu li a:hover {
+  color: #365fb7;
+}
+
+.nav-menu .dropdown {
+  position: relative;
+}
+
+.nav-menu .dropdown-menu {
+  display: block;
+  position: absolute;
+  top: calc(100% + 4px) !important;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(to top, #b2dbf8b7, rgba(255, 255, 255, 0.291));
+  padding: 0rem 0.6rem 0.4rem 0.6rem;
+  border-radius: 8px;
+  box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(4px);
+  list-style: none;
+  text-align: center;
+  z-index: 1000;
+  min-width: 8rem;
+  width: auto !important;
+  min-width: unset !important;  /* or use a small value like 6rem if needed */
+  max-width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+  transition-delay: 0.25s;
+}
+
+.nav-menu .dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition-delay: 0s;
+}
+
+.nav-menu .dropdown-menu li {
+  margin: 0.3rem 0;
+}
+
+.nav-menu .dropdown-menu li a {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.8rem;
+  color: #0462b9;
+  text-decoration: none;
+  position: relative;
+  padding: 0.2rem 0;
+  transition: color 0.3s ease;
+}
+
+.nav-menu .dropdown-menu li a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav-menu .dropdown-menu li a:hover::after {
+  transform: scaleX(1);
+  background-color: #0252ffa0;
+}
+
+.nav-menu .dropdown-menu li a:hover {
+  color: #0252ff43;
+}
+
+
+/* ========== FOOTER STYLES ========== */
+.site-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #aedafa; /* matches header */
+  color: rgba(54, 95, 183, 0.63);
+  text-align: center;
+  padding: 0.2rem;
+  z-index: 999;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+
+.footer-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Footer Social Icons */
+.footer-social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.4rem;
+  padding: 5px 0;
+  margin: 0;
+  list-style: none;
+  align-items: center;
+}
+
+.footer-social-icons li {
+  margin: 0;
+}
+
+.footer-social-icons li a {
+  color: #ffffff;
+  font-size: 1.4rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.footer-social-icons li a:hover {
+  transform: scale(1.3);
+}
+
+/* Brand-specific hover colors */
+.footer-social-icons li a:hover .fa-instagram {
+  color: #E1306C;
+}
+
+.footer-social-icons li a:hover .fa-twitter {
+  color: #1DA1F2;
+}
+
+.footer-social-icons li a:hover .fa-facebook {
+  color: #1877F2;
+}
+
+.footer-social-icons li a:hover .fa-youtube {
+  color: #FF0000;
+}
+
+/* Copyright Text */
+.copyright {
+  font-size: 0.6rem;
+  color: #0011fb;
+  margin: 0;
+  padding: 2px 0 0 0;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin: 2rem auto;
+  max-width: 1200px;
+  padding: 0 1rem;
+}
+
+
+.gallery-center {
+  display: flex;
+  justify-content: center;
+  margin: 1rem auto 2rem;
+  max-width: 1000px;
+}
+.gallery-center .gallery-item {
+  width: 300px; /* Adjust to match top row sizing */
+}
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.gallery-item:hover {
+  transform: scale(1.03);
+}
+
+
+.intro-text {
+  text-align: center;
+  padding: 0.5rem 0.5rem;
+  max-width: 800px;
+  margin: 0 auto 1.5rem;
+}
+
+.intro-text h1 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.7rem;
+  line-height: 1.2;
+  font-weight: 300;
+  color: rgba(54, 95, 183, 0.487);
+  letter-spacing: 0.3px;
+  margin-bottom: 0.2rem;
+}
+
+@media (min-width: 768px) {
+  .intro-text h1 {
+    font-size: 1.7rem;
+    margin-bottom: 0.3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .intro-text h1 {
+    font-size: 1.7rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .intro-text {
+    padding-top: 0.3rem;
+    padding-bottom: 0.5rem;
+  }
+}
+
+
+
+
+/* Center the last item if it's alone in a new row */
+@media (min-width: 768px) {
+  .gallery .center-last {
+    grid-column: 2 / 3;  /* Centers it in the second column of a 3-col grid */
+  }
+}
+
+/* -------------------------------
+   OVERLAY TEXT ON HOVER (tight wrap)
+---------------------------------*/
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Oswald', sans-serif;
+  font-weight: 100;
+  font-style: italic;
+  font-size: 1.3rem;
+  letter-spacing: 0.5px;
+  color: white;
+  text-align: center;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.45);
+  padding: 0.2rem 0.5rem;
+  border-radius: 8px;
+  display: inline-block; /* ✅ key to wrap only around text */
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
+}
+
+
+.gallery-item:hover .overlay-text {
+  opacity: 1;
+}
+
+/* -------------------------------
+   ABOUT PAGE STYLES
+---------------------------------*/
+
+.about-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 2rem auto 4rem auto;
+  padding: 0 2rem;
+}
+
+.profile-photo {
+  flex: 1 1 260px;
+  max-width: 280px;
+  margin-left: -40px;
+  margin-right: 1.5rem;
+}
+
+.profile-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.about-text {
+  flex: 2 1 500px;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #222;
+}
+
+.about-text h1 {
+  font-family: "Matangi", serif;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: rgba(54, 95, 183, 0.65);
+  line-height: 1.2;
+}
+
+.about-text h3 {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.2rem;
+  color: rgba(34, 34, 34, 0.66);
+  margin-top: 1.5rem;
+}
+
+.about-text ul {
+  padding-left: 1.2rem;
+  list-style: disc;
+}
+
+.manohar-link {
+  color: #2f5fc6;
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(54, 95, 183, 0.4);
+  transition: color 0.3s ease;
+}
+
+.manohar-link:hover {
+  color: #15a8d1;
+  text-decoration: underline;
+}
+
+/* ==========================================
+   Contact Page
+========================================== */
+
+ .hidden {
+  display: none !important;
+}
+
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+.contact-text {
+  flex: 1 1 300px;
+}
+
+.contact-text h1 {
+  font-family: 'Matangi', serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: rgba(54, 95, 183, 0.834);
+  margin-bottom: 1rem;
+  line-height: 1.3;
+  letter-spacing: 0.4px;
+}
+
+.contact-form {
+  flex: 1 1 400px;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form label {
+  margin-top: 1rem;
+  margin-bottom: 0.25rem;
+  font-weight: 300;
+  font-size: 0.95rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.1rem 0.3rem; /* 👈 Less vertical padding */
+  font-size: .9rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: 'Nunito Sans', sans-serif;
+  max-width: 320px; /* 👈 Limits width of all fields */
+  width: 100%;
+}
+
+.contact-form textarea {
+  min-height: 140px; /* Optional: give enough typing space */
+  resize: vertical;  /* Allow vertical resizing only */
+}
+
+
+.contact-form button {
+  background-color: #5079d3bb;
+  color: white;
+  border: none;
+  padding: 0.6rem 0.6rem;
+  font-size: 0.95rem;
+  border-radius: 3px;
+  cursor: pointer;
+  font-family: 'Nunito Sans', sans-serif;
+  max-width: 332px;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #3f6ed5;
+  }
+
+@media (max-width: 760px) {
+  .contact-form {
+    padding-bottom: 5rem; /* allows scroll space below the button */
+  }
+}
+
+  /* ===============================
+   PORTFOLIO GALLERY STYLING
+   Applies to: Altitude, Feathers, Vistas
+   =============================== */
+
+/* 🖼️ Grid Layout – Responsive, max 5 columns */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-auto-rows: auto;
+  gap: 1rem;
+  justify-content: center;
+  padding: 3rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 🔁 Force exactly 5 columns on large screens */
+@media (min-width: 1280px) {
+  .gallery-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+/* 🖱️ Individual item hover effects */
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 7px 8px 5px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+}
+
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+/* ✨ Caption on hover (center overlay) */
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Oswald', sans-serif;
+  font-weight: 100;
+  font-style: italic;
+  font-size: 1.3rem;
+  letter-spacing: 0.5px;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 0rem 0.4rem;
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.gallery-item:hover .overlay-text {
+  opacity: 1;
+}
+
+/* 📷 Photo caption overlay at bottom */
+.photo-thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+.photo-thumb img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.gallery-section .photo-thumb .thumb-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height:10%;
+  padding: 0.3rem 0.6rem;
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  font-size: 0.8rem;
+  line-height: 1.3;
+  backdrop-filter: blur(3px);
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+
+.photo-thumb:hover .thumb-overlay {
+  opacity: 1;
+  transform: translateY(0%);
+}
+
+
+/* 🖼️ Gallery title heading */
+.gallery-section h1,
+.gallery-title {
+  font-family: 'Georgia', serif;
+  font-size: 2.2rem;
+  font-weight: normal;
+  letter-spacing: 1px;
+  text-align: center;
+  margin: 1rem 0 0;
+  color: rgba(54, 95, 183, 0.65);
+}
+#films-gallery .intro-text {
+  margin-bottom: 0.3rem; /* reduce from the default 1.5rem */
+}
+
+#films-gallery .intro-text p em {
+  font-size: 1.8rem;
+  font-style: italic;
+  font-family: 'Oswald', sans-serif;
+  color: rgba(54, 95, 183, 0.65);
+  line-height: 0.2;
+  margin-top: 0.1rem;
+}
+
+/* ===============================
+   PHOTOSWIPE LIGHTBOX CUSTOMIZATION
+   =============================== */
+
+/* Custom caption inside PhotoSwipe */
+.pswp__custom-caption {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 90%;
+  text-align: center;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 6px 12px;
+  border-radius: 6px;
+  z-index: 9999;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.9rem;
+}
+
+/* Force light background (not default dark) */
+.pswp,
+.pswp__bg {
+  background-color: #ddd !important;
+  opacity: 1 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Override PhotoSwipe arrows/icons */
+.pswp__button--arrow--prev,
+.pswp__button--arrow--next {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.pswp__icn {
+  fill: #fff !important;
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.4)) !important;
+  border: none !important;
+  outline: none !important;
+}
+
+.pswp__icn-shadow {
+  stroke: none !important;
+  stroke-width: 0 !important;
+}
+
+/* -------------------------------
+   Custom Home Button for PhotoSwipe
+---------------------------------*/
+/* ✅ New: Home Button via PhotoSwipe registerElement (toolbar style) */
+.pswp__button--home-button {
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.pswp__button--home-button .fa-home {
+  font-size: 1.1rem;
+  color: #fff;
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.4));
+}
+/* -------------------------------
+   Home Button in PhotoSwipe Toolbar (Aligned)
+---------------------------------*/
+.pswp__button--home-button {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;        /* ✅ Vertically centers icon */
+  justify-content: center;    /* ✅ Horizontally centers icon */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;                 /* ✅ Remove extra spacing */
+  margin: 0;                  /* ✅ Keep layout tight */
+}
+
+.pswp__button--home-button .fa-home {
+  font-size: 1.15rem;         /* Slightly larger, matches zoom/close */
+  color: #fff;
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.4));
+}
+/* Reduce gap between PhotoSwipe toolbar buttons */
+.pswp__top-bar {
+  gap: 2px !important;  /* Default is ~8-12px, reduce to 4px */
+}
+
+.pswp__button {
+  margin: 0 !important;  /* Remove extra spacing around buttons */
+  padding: 2px !important; /* Reduce padding if needed */
+}
+
+/* ===============================
+   FILMS GALLERY STYLING (Video Lightbox)
+================================= */
+
+#films-gallery .gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Max 3 columns */
+  gap: 1.5rem;
+  padding: 1rem 2rem;
+}
+
+@media (max-width: 992px) {
+  #films-gallery .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  #films-gallery .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Lightbox overlay */
+.video-lightbox {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* Hide by default */
+.video-lightbox.hidden {
+  display: none;
+}
+
+/* Framed video container */
+.video-frame {
+  background: #111;
+  border-radius: 12px;
+  box-shadow: 0 0 40px 8px rgba(70, 130, 180, 0.5);
+  width: 90vw;
+  max-width: 960px;
+  height: 50.625vw;
+  max-height: 540px;
+  position: relative;
+}
+
+#video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 6px;
+  display: block;
+}
+
+/* Thumbnails with overlay */
+.video-thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+.video-thumb img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.thumb-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 25%;
+  padding: 0.3rem 0.6rem;
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  font-size: 0.7rem;
+  line-height: 1.2;
+  backdrop-filter: blur(3px);
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  display: flex;
+  align-items: center;   /* ✅ Center text vertically */
+  
+}
+
+.video-thumb:hover .thumb-overlay {
+  opacity: 1;
+  transform: translateY(0%);
+}
+#video-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 35px;
+  height: 35px;
+  background: rgba(93, 167, 246, 0.212); /* soft blue glow base */
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 0;
+  margin: 0;
+}
+
+#video-close-btn .fa-times {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.442);
+  line-height: 1;
+}
+
+#video-close-btn:hover {
+  background: rgba(82, 174, 250, 0.56); /* brighter on hover */
+}
+
+
+
+
+/* ==========================================
+   Custom Scrollbar for WebKit Browsers
+========================================== */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #1da4f2;      /* Light blue thumb */
+  border-radius: 6px;
+  border: 2px solid transparent;  /* Adds spacing inside track */
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f0f0f0;      /* Light gray track */
+  border-radius: 6px;
+}
+
+/* Optional hover effect */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #007acc;
+}
+
+/* Smooth scroll and behavior fixes */
+body {
+  overscroll-behavior: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
